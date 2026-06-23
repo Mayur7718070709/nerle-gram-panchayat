@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#073d2e">
+  <title>GramSetu AI | Nerle Smart GramPanchayat</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="GramSetu AI Home">
+      <span class="brand-mark"><span></span><span></span><span></span></span>
+      <span><b>GramSetu</b><small>AI Smart GramPanchayat</small></span>
+    </a>
+    <nav>
+      <a href="#services">सेवा</a>
+      <a href="#dashboard">गाव डॅशबोर्ड</a>
+      <a href="#how">कसे चालते?</a>
+      <a href="#plans">प्लॅन</a>
+    </nav>
+    <div class="header-actions">
+      <button class="language-btn" id="languageBtn">मराठी <span>⌄</span></button>
+      <button class="btn btn-outline" data-open="loginModal">लॉग इन</button>
+      <button class="btn btn-primary" data-open="onboardModal">गाव जोडा</button>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <div class="eyebrow"><span></span> महाराष्ट्रासाठी AI-सक्षम डिजिटल ग्रामपंचायत</div>
+        <h1>आपलं गाव.<br><em>आता स्मार्ट गाव.</em></h1>
+        <p>नागरिक सेवा, कर भरणा, तक्रारी, योजना आणि शेती सल्ला — सर्व काही एका सुरक्षित मराठी डिजिटल प्लॅटफॉर्मवर.</p>
+        <div class="hero-cta">
+          <button class="btn btn-accent btn-lg" data-scroll="services">नागरिक सेवा पाहा <span>→</span></button>
+          <button class="btn btn-ghost btn-lg" data-open="videoModal"><span class="play">▶</span> २ मिनिटांचा डेमो</button>
+        </div>
+        <div class="trust-row">
+          <div class="avatars"><span>SP</span><span>AS</span><span>RM</span><span>+</span></div>
+          <p><b>५,०००+</b> नागरिकांसाठी तयार<br><small>नेर्ले ग्रामपंचायत • सुरक्षित SaaS आर्किटेक्चर</small></p>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-glow"></div>
+        <div class="village-card">
+          <div class="live-badge"><i></i> LIVE VILLAGE</div>
+          <div class="village-card-top">
+            <div>
+              <small>माझे गाव</small>
+              <h2>नेर्ले</h2>
+              <p>ता. वाळवा · जि. सांगली</p>
+            </div>
+            <div class="weather"><span>☼</span><b>२८°</b><small>स्वच्छ</small></div>
+          </div>
+          <div class="village-stats">
+            <div><span>लोकसंख्या</span><b>५,०४२</b><small class="positive">↑ १.२%</small></div>
+            <div><span>घरे</span><b>१,१२८</b><small>नोंदणीकृत</small></div>
+            <div><span>सेवा</span><b>१०</b><small class="positive">सर्व सुरू</small></div>
+          </div>
+          <div class="pulse-card">
+            <div class="pulse-icon">✓</div>
+            <div><b>आजचे ग्राम अपडेट</b><span>पाणीपुरवठा सुरळीत · १२ तक्रारी निकाली</span></div>
+            <strong>९४%</strong>
+          </div>
+        </div>
+        <div class="float-card float-left"><span>₹</span><div><small>आजचा कर भरणा</small><b>₹ २४,८५०</b></div><i>+१८%</i></div>
+        <div class="float-card float-right"><span>✓</span><div><small>तक्रार निकाली</small><b>४२ मिनिटांत</b></div></div>
+        <div class="landscape" aria-hidden="true"><span class="hill h1"></span><span class="hill h2"></span><span class="sun"></span><span class="house a"></span><span class="house b"></span><span class="house c"></span></div>
+      </div>
+    </section>
+
+    <section class="announcement">
+      <span class="announce-label">आजची सूचना</span>
+      <div class="ticker"><b>पाणीपुरवठा</b> उद्या सकाळी ७ ते ९ या वेळेत सुरू राहील. नागरिकांनी पाण्याचा योग्य साठा करावा.</div>
+      <span>०४ जून २०२६</span>
+      <button class="text-btn" data-open="noticeModal">सर्व सूचना →</button>
+    </section>
+
+    <section class="section services-section" id="services">
+      <div class="section-heading">
+        <div><span class="section-kicker">डिजिटल नागरिक सेवा</span><h2>गावासाठी सर्व सेवा, <em>एका ठिकाणी</em></h2></div>
+        <p>कार्यालयाच्या फेऱ्या नको. मोबाईलवर अर्ज करा, स्थिती पाहा आणि सुरक्षित पेमेंट करा.</p>
+      </div>
+      <div class="services-grid" id="servicesGrid"></div>
+    </section>
+
+    <section class="section dashboard-section" id="dashboard">
+      <div class="dashboard-intro">
+        <span class="section-kicker light">AI-POWERED GOVERNANCE</span>
+        <h2>निर्णय आता अंदाजाने नाही,<br><em>डेटाच्या आधाराने.</em></h2>
+        <p>सरपंच आणि ग्रामसेवकांसाठी रिअल-टाइम गाव आरोग्य, महसूल, तक्रारी आणि सेवा वितरणाची एकत्रित माहिती.</p>
+        <button class="btn btn-accent" data-open="adminModal">प्रशासकीय डॅशबोर्ड पाहा →</button>
+        <div class="feature-points">
+          <span>✓ प्रत्येक वॉर्डची माहिती</span><span>✓ AI जोखीम सूचना</span><span>✓ ऑडिट-रेडी रिपोर्ट</span>
+        </div>
+      </div>
+      <div class="analytics-card">
+        <div class="analytics-head"><div><small>गाव आरोग्य स्कोअर</small><b>८७<span>/१००</span></b></div><span class="status-pill">उत्तम प्रगती</span></div>
+        <div class="chart-wrap">
+          <div class="chart-labels"><span>१००</span><span>७५</span><span>५०</span><span>२५</span><span>०</span></div>
+          <div class="chart"><div class="grid-lines"></div><svg viewBox="0 0 500 180" preserveAspectRatio="none"><defs><linearGradient id="area" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#ffbd57" stop-opacity=".35"/><stop offset="100%" stop-color="#ffbd57" stop-opacity="0"/></linearGradient></defs><path class="area" d="M0 150 C65 145 70 115 130 122 S210 108 250 85 S330 95 375 55 S440 48 500 20 L500 180 L0 180Z"/><path class="line" d="M0 150 C65 145 70 115 130 122 S210 108 250 85 S330 95 375 55 S440 48 500 20"/></svg></div>
+        </div>
+        <div class="metrics-row"><div><span class="metric-icon revenue">₹</span><small>महसूल वसुली</small><b>९२%</b></div><div><span class="metric-icon water">W</span><small>पाणी व्यवस्थापन</small><b>८४%</b></div><div><span class="metric-icon service">✓</span><small>सेवा वेळेत</small><b>९६%</b></div></div>
+        <div class="ai-insight"><span>AI</span><div><b>आजची AI सूचना</b><p>वॉर्ड ३ मधील पाणी वापर सरासरीपेक्षा २२% जास्त आहे. तपासणी सुचवली आहे.</p></div><button>तपशील →</button></div>
+      </div>
+    </section>
+
+    <section class="section how-section" id="how">
+      <div class="section-heading centered"><div><span class="section-kicker">सोपं. पारदर्शक. सुरक्षित.</span><h2>तीन पायऱ्यांत सेवा पूर्ण</h2></div></div>
+      <div class="steps">
+        <div class="step"><span>01</span><div class="step-icon">M</div><h3>मोबाईल OTP ने लॉग इन</h3><p>पासवर्डची गरज नाही. आपल्या नोंदणीकृत मोबाईलवर सुरक्षित OTP.</p></div>
+        <div class="step"><span>02</span><div class="step-icon">S</div><h3>सेवा निवडा व अर्ज करा</h3><p>मराठीत सोपा फॉर्म, आवश्यक कागदपत्रे आणि स्पष्ट स्थिती.</p></div>
+        <div class="step"><span>03</span><div class="step-icon">✓</div><h3>अपडेट व प्रमाणपत्र मिळवा</h3><p>WhatsApp वर अपडेट, डिजिटल पेमेंट आणि QR-सत्यापित प्रमाणपत्र.</p></div>
+      </div>
+    </section>
+
+    <section class="section plans-section" id="plans">
+      <div class="plan-copy"><span class="section-kicker">MULTI-VILLAGE SAAS</span><h2>एका गावापासून संपूर्ण महाराष्ट्रापर्यंत.</h2><p>प्रत्येक गावाचा डेटा स्वतंत्र व सुरक्षित. जिल्हा आणि राज्य स्तरावर एकत्रित दृष्टीकोन.</p></div>
+      <div class="plan-card"><div><small>ग्राम प्रगती प्लॅन</small><h3>₹ ४,९९९ <span>/ महिना / गाव</span></h3><p>५,००० नागरिकांपर्यंत · सर्व १० डिजिटल सेवा</p></div><button class="btn btn-accent" data-open="onboardModal">गाव ऑनबोर्ड करा →</button></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-main">
+      <div class="footer-brand"><a class="brand" href="#home"><span class="brand-mark"><span></span><span></span><span></span></span><span><b>GramSetu</b><small>AI Smart GramPanchayat</small></span></a><p>तंत्रज्ञानातून सक्षम गाव, पारदर्शक प्रशासन आणि समृद्ध महाराष्ट्र.</p><div class="contact"><span>सहाय्य: १८००-१२३-ग्राम</span><span>नमस्कार@gramsetu.ai</span></div></div>
+      <div><h4>नागरिकांसाठी</h4><a href="#services">सर्व सेवा</a><a href="#services">तक्रार नोंदवा</a><a href="#services">कर भरा</a><a href="#services">योजना तपासा</a></div>
+      <div><h4>ग्रामपंचायतीसाठी</h4><a href="#dashboard">डॅशबोर्ड</a><a href="#plans">किंमत व प्लॅन</a><a href="#how">सुरक्षा</a><a href="#how">WhatsApp सेवा</a></div>
+      <div><h4>कंपनी</h4><a href="#home">आमच्याबद्दल</a><a href="#home">संपर्क</a><a href="#home">गोपनीयता</a><a href="#home">अटी</a></div>
+    </div>
+    <div class="footer-bottom"><span>© २०२६ GramSetu AI Technologies Pvt. Ltd.</span><span>Made for Maharashtra · भारतात सुरक्षित डेटा</span></div>
+  </footer>
+
+  <button class="ai-fab" id="aiFab" aria-label="Open AI assistant"><span class="ai-orbit"></span><b>AI</b><i></i></button>
+  <div class="ai-panel" id="aiPanel">
+    <div class="ai-panel-head"><div><span class="ai-avatar">AI</span><div><b>ग्राममित्र AI</b><small><i></i> मराठी सहाय्यक ऑनलाइन</small></div></div><button id="closeAi">×</button></div>
+    <div class="assistant-tabs"><button class="active" data-assistant="citizen">नागरिक सहाय्य</button><button data-assistant="farmer">शेतकरी AI</button></div>
+    <div class="chat-body" id="chatBody"></div>
+    <div class="quick-prompts" id="quickPrompts"></div>
+    <form class="chat-form" id="chatForm"><button type="button" class="voice-btn" id="voiceBtn">◉</button><input id="chatInput" placeholder="मराठीत प्रश्न विचारा..." autocomplete="off"><button type="submit">↑</button></form>
+  </div>
+
+  <div class="modal" id="loginModal"><div class="modal-card compact"><button class="modal-close">×</button><div class="modal-icon">M</div><span class="section-kicker">सुरक्षित नागरिक प्रवेश</span><h2>मोबाईल नंबरने लॉग इन</h2><p>आपल्या नोंदणीकृत मोबाईलवर OTP पाठवला जाईल.</p><form id="loginForm"><label>मोबाईल नंबर</label><div class="phone-input"><span>+९१</span><input id="mobileInput" inputmode="numeric" maxlength="10" placeholder="९८७६५ ४३२१०" required></div><button class="btn btn-primary full" type="submit">OTP पाठवा →</button></form><small class="secure-note">डेटा एन्क्रिप्टेड व भारतात सुरक्षित</small></div></div>
+  <div class="modal" id="otpModal"><div class="modal-card compact"><button class="modal-close">×</button><div class="modal-icon">✓</div><span class="section-kicker">OTP पडताळणी</span><h2>६ अंकी OTP टाका</h2><p>डेमोसाठी OTP: <b>123456</b></p><form id="otpForm"><input class="otp-input" id="otpInput" maxlength="6" inputmode="numeric" placeholder="• • • • • •" required><button class="btn btn-primary full" type="submit">पडताळा व लॉग इन करा</button></form></div></div>
+  <div class="modal" id="serviceModal"><div class="modal-card service-modal-card"><button class="modal-close">×</button><div id="serviceModalContent"></div></div></div>
+  <div class="modal" id="onboardModal"><div class="modal-card"><button class="modal-close">×</button><span class="section-kicker">नवीन गाव ऑनबोर्डिंग</span><h2>तुमच्या गावाला डिजिटल करा</h2><div class="onboard-grid"><label>गावाचे नाव<input value="नेर्ले"></label><label>तालुका<input value="वाळवा"></label><label>जिल्हा<input value="सांगली"></label><label>अंदाजे लोकसंख्या<input value="५०००"></label></div><label>सरपंच / ग्रामसेवक मोबाईल<input placeholder="+९१ मोबाईल नंबर"></label><button class="btn btn-primary full" data-success="ऑनबोर्डिंग विनंती यशस्वी! आमची टीम लवकरच संपर्क करेल.">डेमो बुक करा →</button></div></div>
+  <div class="modal" id="adminModal"><div class="modal-card wide"><button class="modal-close">×</button><span class="section-kicker">SUPER ADMIN PREVIEW</span><h2>Multi-village Command Center</h2><div class="admin-summary"><div><small>Active villages</small><b>२४</b><span>+३ this month</span></div><div><small>Citizens served</small><b>१.२L</b><span>Across 4 districts</span></div><div><small>Monthly revenue</small><b>₹१.१९L</b><span>96% collected</span></div><div><small>Platform health</small><b>९९.९%</b><span>All systems normal</span></div></div><div class="village-table"><div class="table-head"><span>Village</span><span>District</span><span>Citizens</span><span>Plan</span><span>Status</span></div><div><b>Nerle</b><span>Sangli</span><span>5,042</span><span>Pragati</span><em>Active</em></div><div><b>Ashta</b><span>Sangli</span><span>8,430</span><span>Pragati+</span><em>Active</em></div><div><b>Tambave</b><span>Satara</span><span>4,182</span><span>Pragati</span><em>Trial</em></div></div></div></div>
+  <div class="modal" id="videoModal"><div class="modal-card video-card"><button class="modal-close">×</button><div class="video-placeholder"><span>▶</span><h2>GramSetu AI Product Tour</h2><p>Citizen to certificate. Complaint to resolution. Data to better governance.</p></div></div></div>
+  <div class="modal" id="noticeModal"><div class="modal-card"><button class="modal-close">×</button><span class="section-kicker">गाव सूचना फलक</span><h2>ताज्या सूचना</h2><div class="notice-list"><div><span>पाणी</span><b>उद्या सकाळी ७ ते ९ पाणीपुरवठा</b><small>आज · ग्रामपंचायत नेर्ले</small></div><div><span>सभा</span><b>मासिक ग्रामसभा ८ जून रोजी</b><small>काल · ग्रामसेवक कार्यालय</small></div><div><span>आरोग्य</span><b>मोफत आरोग्य तपासणी शिबिर</b><small>२ जून · प्राथमिक आरोग्य केंद्र</small></div></div></div></div>
+  <div class="toast" id="toast"><span>✓</span><p></p></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
