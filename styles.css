@@ -14,3 +14,77 @@ footer{background:#052c22;color:#fff;padding:65px 8vw 20px}.footer-main{display:
 @media(max-width:1050px){nav{display:none}.services-grid{grid-template-columns:repeat(3,1fr)}.hero-copy{padding-left:5vw}.float-right{right:2%}.dashboard-section{gap:4vw}.header-actions .language-btn{display:none}}
 @media(max-width:780px){.topbar{height:67px;padding:0 18px}.header-actions{display:none}.menu-btn{display:block}.hero{grid-template-columns:1fr}.hero-copy{padding:65px 22px 25px}.hero-copy>p{font-size:14px}.hero-visual{min-height:510px}.village-card{top:25px;left:10%;width:80%}.float-left{left:3%;top:335px}.float-right{right:3%;top:290px}.announcement{padding:10px 18px}.announcement>span:nth-last-of-type(1),.announcement .text-btn{display:none}.section{padding:65px 20px}.section-heading{display:block}.services-grid{grid-template-columns:repeat(2,1fr)}.dashboard-section{grid-template-columns:1fr}.analytics-card{padding:15px}.steps,.plans-section{grid-template-columns:1fr}.footer-main{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/-1}.ai-panel{right:10px;bottom:85px;width:calc(100% - 20px)}.admin-summary{grid-template-columns:1fr 1fr}.flow-form{grid-template-columns:1fr}.flow-form .full-row{grid-column:auto}.onboard-grid{grid-template-columns:1fr}.village-table>div{grid-template-columns:1.3fr 1fr 1fr}.village-table>div span:nth-child(4),.village-table>div span:nth-child(5),.village-table>div em{display:none}}
 @media(max-width:480px){h1{font-size:47px}.hero-cta{align-items:stretch;flex-direction:column}.village-card{width:92%;left:4%;padding:18px}.float-card{transform:scale(.85)}.float-right{right:-4%}.float-left{left:-4%}.services-grid{grid-template-columns:1fr 1fr;gap:8px}.service-card{padding:15px 12px;min-height:190px}.service-card p{font-size:9px}.section-heading h2,.dashboard-intro h2,.plan-copy h2{font-size:32px}.metrics-row{grid-template-columns:1fr}.plan-card{display:block}.footer-main{grid-template-columns:1fr}.footer-brand{grid-column:auto}.footer-bottom{display:block;line-height:2}.ai-fab{right:14px;bottom:14px}}
+
+
+.ward-data-panel{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:18px;position:relative;z-index:1}
+.ward-data-panel>div{border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.07);border-radius:14px;padding:12px;color:#fff}
+.ward-data-panel b,.ward-data-panel span,.ward-data-panel small{display:block}
+.ward-data-panel b{font-size:12px;color:var(--gold)}
+.ward-data-panel span{font-size:10px;margin:4px 0;color:#fff}
+.ward-data-panel small{font-size:8px;color:#bfd3ca;line-height:1.5}
+.ward-data-panel .risk{border-color:rgba(244,173,61,.55);background:rgba(244,173,61,.12)}
+.live-metrics>div{grid-template-columns:auto 1fr}
+.live-metrics em{grid-column:2;font-style:normal;font-size:7px;color:#168255;line-height:1.35}
+.live-data-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.live-data-strip span{background:#eef8f2;border:1px solid #d7eadf;border-radius:11px;padding:10px;font-size:8px;color:var(--muted)}
+.live-data-strip b{display:block;color:var(--green);font-size:9px;margin-bottom:3px}
+.product-tour-video{background:#061f18;color:#fff}
+.tour-screen{min-height:390px;padding:38px;display:grid;place-items:center;align-content:center;text-align:center;background:radial-gradient(circle at 50% 22%,rgba(244,173,61,.34),transparent 28%),linear-gradient(135deg,#0a3e30,#061f18 70%);position:relative;overflow:hidden}
+.tour-screen:before{content:"";position:absolute;inset:20px;border:1px solid rgba(255,255,255,.12);border-radius:22px}
+.tour-badge{position:relative;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);padding:7px 11px;border-radius:999px;color:var(--gold);font-size:9px;font-weight:900;letter-spacing:1.2px}
+.tour-play{position:relative;width:72px;height:72px;border-radius:50%;display:grid;place-items:center;background:var(--gold);color:var(--green);font-weight:900;margin:24px 0 12px;box-shadow:0 0 0 12px rgba(244,173,61,.14)}
+.tour-screen h2{position:relative;color:#fff;margin:6px 0;font-size:32px}
+.tour-screen p{position:relative;max-width:560px;color:#d9e9e1;font-size:12px}
+.tour-timeline{position:relative;width:min(520px,100%);height:8px;background:rgba(255,255,255,.14);border-radius:999px;margin:24px 0 12px;overflow:hidden}
+.tour-timeline i{display:block;width:100%;height:100%;background:linear-gradient(90deg,var(--gold),#ffe0a1);animation:tourProgress 120s linear infinite}
+.tour-scenes{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:7px;width:min(620px,100%)}
+.tour-scenes span{border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:8px;color:#c7dcd2;font-size:8px}
+.tour-controls{display:flex;justify-content:space-between;gap:18px;align-items:center;padding:18px 24px;background:#fff;color:var(--green)}
+.tour-controls small{font-size:9px;color:var(--muted);line-height:1.5}
+@keyframes tourProgress{from{transform:translateX(-100%)}to{transform:translateX(0)}}
+@media(max-width:780px){.ward-data-panel,.live-data-strip,.tour-scenes{grid-template-columns:1fr}.tour-controls{display:block}.tour-controls small{display:block;margin-top:10px}}
+
+
+/* Readability pass: only the tiny helper/body text is enlarged, not hero or section titles. */
+.brand small{font-size:10px}
+nav{font-size:14px}
+.eyebrow,.section-kicker{font-size:12px}
+.language-btn,.text-btn{font-size:12px}
+.announce-label,.ticker,.announcement>span{font-size:12px}
+.trust-row p,.village-card p,.village-card-top small,.float-card small{font-size:12px}
+.village-stats span,.village-stats small,.pulse-card b,.pulse-card span{font-size:10px}
+.service-number{font-size:11px}
+.service-card h3{font-size:15px}
+.service-card p,.service-card button{font-size:12px}
+.dashboard-intro p,.section-heading>p,.plan-copy p{font-size:15px}
+.feature-points span{font-size:11px}
+.analytics-head small,.metrics-row small,.ai-insight b,.ai-insight p,.ai-insight button{font-size:10px}
+.live-metrics em,.live-data-strip span,.live-data-strip b{font-size:10px}
+.ward-data-panel b{font-size:14px}
+.ward-data-panel span{font-size:12px}
+.ward-data-panel small{font-size:10px}
+.step h3{font-size:17px}
+.step p{font-size:13px}
+.plan-card h3 span,.plan-card p{font-size:11px}
+footer{padding-top:55px}
+.footer-main{grid-template-columns:2fr 1fr 1fr;gap:7vw}
+.footer-brand p,footer a:not(.brand),footer h4,.contact span,.footer-bottom{font-size:12px}
+.modal-card p,.modal-card label,.modal-card input,.modal-card select,.modal-card textarea,.secure-note{font-size:12px}
+.admin-summary small,.admin-summary span,.village-table,.progress-step{font-size:11px}
+.assistant-tabs button,.message,.quick-prompts button,.chat-form input{font-size:11px}
+.session-bar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:9px 8vw;background:#fff7e8;border-bottom:1px solid #f0d7a8;color:var(--green);font-size:13px;position:sticky;top:78px;z-index:25}
+.session-bar[hidden]{display:none}
+.session-bar b{color:#9b5d00}
+.role-grid{display:grid;gap:8px;margin-top:8px}
+.role-option{display:flex!important;align-items:center;gap:10px;border:1px solid var(--line);border-radius:13px;padding:11px;background:#fbfdfc;cursor:pointer;margin-top:0!important}
+.role-option input{width:auto!important;margin:0!important}
+.role-option b,.role-option small{display:block}
+.role-option b{font-size:13px;color:var(--green)}
+.role-option small{font-size:10px;color:var(--muted);font-weight:600}
+.login-dashboard-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}
+.login-dashboard-grid>div{background:var(--mint);border:1px solid #d3e6db;border-radius:14px;padding:15px}
+.login-dashboard-grid small,.login-dashboard-grid span,.login-dashboard-grid b{display:block}
+.login-dashboard-grid small{font-size:11px;color:var(--muted)}
+.login-dashboard-grid b{font-size:22px;color:var(--green);margin:5px 0}
+.login-dashboard-grid span{font-size:11px;color:#168255}
+@media(max-width:780px){.session-bar{top:67px;padding:9px 18px}.footer-main,.login-dashboard-grid{grid-template-columns:1fr}.session-bar{align-items:flex-start;flex-direction:column}}

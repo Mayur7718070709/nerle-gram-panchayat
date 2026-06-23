@@ -49,8 +49,60 @@ function handleService(id){
   document.getElementById("checkScheme")?.addEventListener("click",()=>document.getElementById("schemeResult").style.display="block");
 }
 
-document.getElementById("loginForm").addEventListener("submit",e=>{e.preventDefault();openModal("otpModal")});
-document.getElementById("otpForm").addEventListener("submit",e=>{e.preventDefault();if(document.getElementById("otpInput").value==="123456"){closeModals();showToast("स्वागत आहे, सुनील पाटील! नागरिक डॅशबोर्ड तयार आहे.")}else showToast("डेमोसाठी OTP 123456 वापरा.")});
+const loginProfiles = {
+  member: {
+    label: "Village Member",
+    name: "Sunil Patil",
+    title: "Village Member Dashboard",
+    kicker: "NERLE CITIZEN LOGIN",
+    toast: "Village Member login successful. Citizen dashboard is live.",
+    html: `<div class="login-dashboard-grid"><div><small>House Tax Due</small><b>₹२,२००</b><span>Due: ३० जून २०२६</span></div><div><small>Water Bill</small><b>₹३६०</b><span>QR payment ready</span></div><div><small>Complaint</small><b>GP-NER-2026-184</b><span>Officer assigned</span></div><div><small>Certificates</small><b>२ active</b><span>Birth certificate in review</span></div></div><div class="flow-result"><b>Village Member: Sunil Patil · Ward 3</b><p>Mobile verified with OTP. You can now pay tax/water bills, file complaints, track certificates, and receive WhatsApp alerts.</p></div>`
+  },
+  admin: {
+    label: "Grampanchayat Admin",
+    name: "GramSevak Admin",
+    title: "Grampanchayat Admin Dashboard",
+    kicker: "STAFF OPERATIONS LOGIN",
+    toast: "Grampanchayat Admin login successful. Operations dashboard is live.",
+    html: `<div class="login-dashboard-grid"><div><small>Pending Services</small><b>२७</b><span>८ urgent today</span></div><div><small>Revenue Collection</small><b>₹८.७६L</b><span>९२% collected</span></div><div><small>Water Alerts</small><b>३</b><span>Ward 3 high usage</span></div><div><small>Audit Reports</small><b>२३/२५</b><span>Ready for review</span></div></div><div class="flow-result"><b>Admin controls enabled</b><p>Approve certificates, assign complaints, verify payments, publish WhatsApp notices, and export audit-ready reports.</p></div>`
+  },
+  sarpanch: {
+    label: "Sarpanch",
+    name: "Sarpanch Office",
+    title: "Sarpanch Governance Dashboard",
+    kicker: "AI DECISION DASHBOARD",
+    toast: "Sarpanch login successful. Governance dashboard is live.",
+    html: `<div class="login-dashboard-grid"><div><small>Village Health</small><b>८७/१००</b><span>Good Progress</span></div><div><small>Complaints Closed</small><b>९६%</b><span>SLA performance</span></div><div><small>Ward Risk</small><b>Ward 3</b><span>Water +२२%</span></div><div><small>Monthly Revenue</small><b>₹१.१९L</b><span>Live collection view</span></div></div><div class="flow-result"><b>Sarpanch AI summary</b><p>Focus today: Ward 3 water inspection, ८७ pending tax households, and ग्रामसभा notice approval.</p></div>`
+  }
+};
+
+let selectedLoginRole = "member";
+
+document.getElementById("loginForm").addEventListener("submit", e => {
+  e.preventDefault();
+  selectedLoginRole = document.querySelector("input[name='loginRole']:checked")?.value || "member";
+  document.getElementById("selectedRoleText").textContent = loginProfiles[selectedLoginRole].label;
+  openModal("otpModal");
+});
+
+document.getElementById("otpForm").addEventListener("submit", e => {
+  e.preventDefault();
+  if (document.getElementById("otpInput").value !== "123456") {
+    showToast("डेमोसाठी OTP 123456 वापरा.");
+    return;
+  }
+  const profile = loginProfiles[selectedLoginRole];
+  document.getElementById("memberDashboardKicker").textContent = profile.kicker;
+  document.getElementById("memberDashboardTitle").textContent = profile.title;
+  document.getElementById("memberDashboardContent").innerHTML = profile.html;
+  document.getElementById("sessionRole").textContent = profile.label;
+  document.getElementById("sessionBar").hidden = false;
+  const loginButton = document.querySelector("[data-open='loginModal']");
+  if (loginButton) loginButton.textContent = profile.label + " लॉग इन";
+  closeModals();
+  openModal("memberDashboardModal");
+  showToast(profile.toast);
+});
 
 let toastTimer;
 function showToast(text){const toast=document.getElementById("toast");toast.querySelector("p").textContent=text;toast.classList.add("show");clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove("show"),3500)}
@@ -77,3 +129,22 @@ document.getElementById("voiceBtn").onclick=()=>showToast("आवाज सह�
 document.getElementById("languageBtn").onclick=()=>showToast("मराठी ही प्राथमिक भाषा आहे. English आणि हिंदी पुढील आवृत्तीत.");
 document.getElementById("menuBtn").onclick=()=>showToast("सेवा निवडण्यासाठी खाली स्क्रोल करा.");
 setAssistant("citizen");
+
+
+document.addEventListener("click", e => {
+  if (!e.target.closest("#playTourAudio")) return;
+  const text = "GramSetu AI product tour. In two minutes, see how a villager logs in with mobile OTP, asks questions in Marathi, files a complaint, pays house tax or water bill with QR code, receives WhatsApp updates, and how the Gram Panchayat sees ward wise analytics, revenue collection, water risk alerts, and audit ready reports.";
+  if ("speechSynthesis" in window) {
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = "en-IN";
+    utterance.rate = 0.82;
+    window.speechSynthesis.speak(utterance);
+    showToast("GramSetu AI product tour audio started.");
+  } else {
+    showToast("Audio narration is not supported in this browser.");
+  }
+});
+
+
+document.getElementById("openMemberDashboard")?.addEventListener("click", () => openModal("memberDashboardModal"));
