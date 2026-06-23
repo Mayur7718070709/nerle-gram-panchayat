@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="mr">
 <head>
   <meta charset="UTF-8">
@@ -16,8 +16,6 @@
     <nav>
       <a href="#services">सेवा</a>
       <a href="#dashboard">गाव डॅशबोर्ड</a>
-      <a href="#how">कसे चालते?</a>
-      <a href="#plans">प्लॅन</a>
     </nav>
     <div class="header-actions">
       <button class="language-btn" id="languageBtn">मराठी <span>⌄</span></button>
@@ -27,8 +25,8 @@
     <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
   </header>
   <div class="session-bar" id="sessionBar" hidden>
-    <span><b id="sessionRole">Village Member</b> logged in for Nerle GramPanchayat</span>
-    <button class="text-btn" id="openMemberDashboard">Open dashboard</button>
+    <span><b id="sessionRole">गाव सदस्य</b> नेर्ले ग्रामपंचायतमध्ये लॉग इन झाले</span>
+    <button class="text-btn" id="openMemberDashboard">डॅशबोर्ड उघडा</button>
   </div>
 
   <main>
@@ -156,15 +154,15 @@
   </div>
 
   <div class="modal" id="loginModal"><div class="modal-card compact"><button class="modal-close">×</button><div class="modal-icon">M</div><span class="section-kicker">सुरक्षित ग्राम प्रवेश</span><h2>मोबाईल OTP ने लॉग इन</h2><p>तुमची भूमिका निवडा आणि नोंदणीकृत मोबाईलवर OTP मिळवा.</p><form id="loginForm"><label>लॉगिन प्रकार</label><div class="role-grid">
-    <label class="role-option"><input type="radio" name="loginRole" value="member" checked><span><b>Village Member</b><small>बिल, तक्रार, दाखले, योजना</small></span></label>
-    <label class="role-option"><input type="radio" name="loginRole" value="admin"><span><b>Grampanchayat Admin</b><small>सेवा, महसूल, रिपोर्ट</small></span></label>
-    <label class="role-option"><input type="radio" name="loginRole" value="sarpanch"><span><b>Sarpanch</b><small>AI governance dashboard</small></span></label>
+    <label class="role-option"><input type="radio" name="loginRole" value="member" checked><span><b>गाव सदस्य</b><small>बिल, तक्रार, दाखले, योजना</small></span></label>
+    <label class="role-option"><input type="radio" name="loginRole" value="admin"><span><b>ग्रामसेवक / ग्रामपंचायत अॅडमिन</b><small>सेवा, महसूल, रिपोर्ट</small></span></label>
+    <label class="role-option"><input type="radio" name="loginRole" value="sarpanch"><span><b>सरपंच</b><small>AI प्रशासन डॅशबोर्ड</small></span></label>
   </div><label>मोबाईल नंबर</label><div class="phone-input"><span>+९१</span><input id="mobileInput" inputmode="numeric" maxlength="10" placeholder="९८७६५ ४३२१०" required></div><button class="btn btn-primary full" type="submit">OTP पाठवा →</button></form><small class="secure-note">Demo OTP: 123456 · डेटा एन्क्रिप्टेड व भारतात सुरक्षित</small></div></div>
   <div class="modal" id="otpModal"><div class="modal-card compact"><button class="modal-close">×</button><div class="modal-icon">✓</div><span class="section-kicker">OTP पडताळणी</span><h2>६ अंकी OTP टाका</h2><p><b id="selectedRoleText">Village Member</b> म्हणून लॉग इन करत आहात. डेमोसाठी OTP: <b>123456</b></p><form id="otpForm"><input class="otp-input" id="otpInput" maxlength="6" inputmode="numeric" placeholder="• • • • • •" required><button class="btn btn-primary full" type="submit">पडताळा व डॅशबोर्ड उघडा</button></form></div></div>
-  <div class="modal" id="memberDashboardModal"><div class="modal-card wide"><button class="modal-close">×</button><span class="section-kicker" id="memberDashboardKicker">LIVE LOGIN</span><h2 id="memberDashboardTitle">Village Member Dashboard</h2><div id="memberDashboardContent"></div></div></div>
+  <div class="modal" id="memberDashboardModal"><div class="modal-card wide"><button class="modal-close">×</button><span class="section-kicker" id="memberDashboardKicker">थेट लॉगिन</span><h2 id="memberDashboardTitle">गाव सदस्य डॅशबोर्ड</h2><div id="memberDashboardContent"></div></div></div>
   <div class="modal" id="serviceModal"><div class="modal-card service-modal-card"><button class="modal-close">×</button><div id="serviceModalContent"></div></div></div>
   <div class="modal" id="onboardModal"><div class="modal-card"><button class="modal-close">×</button><span class="section-kicker">नवीन गाव ऑनबोर्डिंग</span><h2>तुमच्या गावाला डिजिटल करा</h2><div class="onboard-grid"><label>गावाचे नाव<input value="नेर्ले"></label><label>तालुका<input value="वाळवा"></label><label>जिल्हा<input value="सांगली"></label><label>अंदाजे लोकसंख्या<input value="५०००"></label></div><label>सरपंच / ग्रामसेवक मोबाईल<input placeholder="+९१ मोबाईल नंबर"></label><button class="btn btn-primary full" data-success="ऑनबोर्डिंग विनंती यशस्वी! आमची टीम लवकरच संपर्क करेल.">डेमो बुक करा →</button></div></div>
-  <div class="modal" id="adminModal"><div class="modal-card wide"><button class="modal-close">×</button><span class="section-kicker">SUPER ADMIN PREVIEW</span><h2>Multi-village Command Center</h2><div class="admin-summary"><div><small>Active villages</small><b>२४</b><span>+३ this month</span></div><div><small>Citizens served</small><b>१.२L</b><span>Across 4 districts</span></div><div><small>Monthly revenue</small><b>₹१.१९L</b><span>96% collected</span></div><div><small>Platform health</small><b>९९.९%</b><span>All systems normal</span></div></div><div class="village-table"><div class="table-head"><span>Village</span><span>District</span><span>Citizens</span><span>Plan</span><span>Status</span></div><div><b>Nerle</b><span>Sangli</span><span>5,042</span><span>Progress</span><em>Active</em></div><div><b>Ashta</b><span>Sangli</span><span>8,430</span><span>Progress+</span><em>Active</em></div><div><b>Tambave</b><span>Satara</span><span>4,182</span><span>Progress</span><em>Trial</em></div></div></div></div>
+  <div class="modal" id="adminModal"><div class="modal-card wide"><button class="modal-close">×</button><span class="section-kicker">SUPER ADMIN PREVIEW</span><h2>Multi-village Command Center</h2><div class="admin-summary"><div><small>Active villages</small><b>७</b><span>All demo villages live</span></div><div><small>Citizens served</small><b>१.८L</b><span>Navi Mumbai + Panvel belt</span></div><div><small>Monthly revenue</small><b>₹१८.४L</b><span>94% collected</span></div><div><small>Platform health</small><b>९९.९%</b><span>All systems normal</span></div></div><div class="village-table"><div class="table-head"><span>Village</span><span>District</span><span>Citizens</span><span>Plan</span><span>Status</span></div><div><b>Ghansoli</b><span>Navi Mumbai</span><span>28,400</span><span>Progress+</span><em>Active</em></div><div><b>Kopar Khairane</b><span>Navi Mumbai</span><span>31,200</span><span>Progress+</span><em>Active</em></div><div><b>Airoli</b><span>Navi Mumbai</span><span>42,800</span><span>Enterprise</span><em>Active</em></div><div><b>Dighe</b><span>Navi Mumbai</span><span>12,950</span><span>Progress</span><em>Active</em></div><div><b>Mahape</b><span>Navi Mumbai</span><span>18,600</span><span>Progress</span><em>Active</em></div><div><b>Karavem</b><span>Panvel</span><span>9,870</span><span>Trial</span><em>Onboarding</em></div><div><b>Kamothe</b><span>Panvel</span><span>35,100</span><span>Progress+</span><em>Active</em></div></div></div></div>
   <div class="modal" id="videoModal"><div class="modal-card video-card"><button class="modal-close">×</button><div class="product-tour-video">
     <div class="tour-screen">
       <span class="tour-badge">02:00 PRODUCT TOUR</span>
@@ -179,9 +177,11 @@
       <small>Audio demo uses browser voice narration. Final investor video can be replaced with an MP4 file anytime.</small>
     </div>
   </div></div></div>
-  <div class="modal" id="noticeModal"><div class="modal-card"><button class="modal-close">×</button><span class="section-kicker">गाव सूचना फलक</span><h2>ताज्या सूचना</h2><div class="notice-list"><div><span>पाणी</span><b>उद्या सकाळी ७ ते ९ पाणीपुरवठा</b><small>आज · ग्रामपंचायत नेर्ले</small></div><div><span>सभा</span><b>मासिक ग्रामसभा ८ जून रोजी</b><small>काल · ग्रामसेवक कार्यालय</small></div><div><span>आरोग्य</span><b>मोफत आरोग्य तपासणी शिबिर</b><small>२ जून · प्राथमिक आरोग्य केंद्र</small></div></div></div></div>
+  <div class="modal" id="noticeModal"><div class="modal-card"><button class="modal-close">×</button><span class="section-kicker">गाव सूचना फलक</span><h2>ताज्या सूचना</h2><div class="notice-list"><div><span>पाणी</span><b>उद्या सकाळी ७ ते ९ पाणीपुरवठा</b><small>आज · ग्रामपंचायत नेर्ले</small></div><div><span>सभा</span><b>मासिक ग्रामसभा ८ जून रोजी</b><small>काल · ग्रामसेवक कार्यालय</small></div><div><span>आरोग्य</span><b>मोफत आरोग्य तपासणी शिबिर</b><small>२ जून · प्राथमिक आरोग्य केंद्र</small></div><div><span>कर</span><b>घरपट्टी व पाणी बिल भरण्यासाठी १० जुलै अंतिम तारीख</b><small>१ जुलै · महसूल विभाग</small></div><div><span>स्वच्छता</span><b>वॉर्ड ३ मध्ये १२ जुलै रोजी विशेष स्वच्छता मोहीम</b><small>५ जुलै · स्वच्छता विभाग</small></div><div><span>सभा</span><b>ग्रामसभा १८ जुलै रोजी सायं. ५ वाजता</b><small>११ जुलै · ग्रामसेवक कार्यालय</small></div><div><span>आरोग्य</span><b>२६ जुलै रोजी महिला व बाल आरोग्य तपासणी शिबिर</b><small>२० जुलै · प्राथमिक आरोग्य केंद्र</small></div></div></div></div>
   <div class="toast" id="toast"><span>✓</span><p></p></div>
 
   <script src="app.js"></script>
 </body>
 </html>
+
+

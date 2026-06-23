@@ -1,4 +1,4 @@
-const services = [
+﻿const services = [
   { id:"chat", icon:"AI", title:"मराठी AI ग्राममित्र", desc:"२४x७ मराठीत गाव सेवा आणि माहिती मिळवा.", color:"#f4ad3d", action:"चॅट सुरू करा" },
   { id:"voice", icon:"VO", title:"AI मराठी आवाज सहाय्यक", desc:"वाचा नको, फक्त बोला आणि उत्तर ऐका.", color:"#8bb9a3", action:"बोलायला सुरू करा" },
   { id:"complaint", icon:"CM", title:"नागरिक तक्रार व्यवस्थापन", desc:"फोटोसह तक्रार नोंदवा आणि स्थिती पाहा.", color:"#e87963", action:"तक्रार नोंदवा" },
@@ -43,6 +43,7 @@ function handleService(id){
   if(id==="chat"){ setAssistant("citizen"); document.getElementById("aiPanel").classList.add("open"); return; }
   if(id==="voice"){ setAssistant("citizen"); document.getElementById("aiPanel").classList.add("open"); setTimeout(()=>showToast("आवाज सहाय्यक ऐकत आहे. तुमचा प्रश्न बोला."),250); return; }
   if(id==="farmer"){ setAssistant("farmer"); document.getElementById("aiPanel").classList.add("open"); return; }
+  if(id==="analytics") { closeModals(); document.getElementById("dashboard")?.scrollIntoView({behavior:"smooth", block:"start"}); return; }
   const service = services.find(s=>s.id===id);
   document.getElementById("serviceModalContent").innerHTML = flowContent[id] || `<div class="service-flow-head"><span class="service-icon">${service.icon}</span><div><span class="section-kicker">DIGITAL SERVICE</span><h2>${service.title}</h2></div></div><p>${service.desc}</p><button class="btn btn-primary full" data-success="सेवा विनंती यशस्वी!">सुरू करा →</button>`;
   openModal("serviceModal");
@@ -51,30 +52,30 @@ function handleService(id){
 
 const loginProfiles = {
   member: {
-    label: "Village Member",
-    name: "Sunil Patil",
-    title: "Village Member Dashboard",
-    kicker: "NERLE CITIZEN LOGIN",
-    toast: "Village Member login successful. Citizen dashboard is live.",
-    html: `<div class="login-dashboard-grid"><div><small>House Tax Due</small><b>₹२,२००</b><span>Due: ३० जून २०२६</span></div><div><small>Water Bill</small><b>₹३६०</b><span>QR payment ready</span></div><div><small>Complaint</small><b>GP-NER-2026-184</b><span>Officer assigned</span></div><div><small>Certificates</small><b>२ active</b><span>Birth certificate in review</span></div></div><div class="flow-result"><b>Village Member: Sunil Patil · Ward 3</b><p>Mobile verified with OTP. You can now pay tax/water bills, file complaints, track certificates, and receive WhatsApp alerts.</p></div>`
+    label: "गाव सदस्य",
+    name: "सुनील पाटील",
+    title: "गाव सदस्य डॅशबोर्ड",
+    kicker: "नेर्ले नागरिक लॉगिन",
+    toast: "गाव सदस्य लॉगिन यशस्वी. नागरिक डॅशबोर्ड सुरू झाला.",
+    html: `<div class="login-dashboard-grid"><div><small>घरपट्टी बाकी</small><b>₹२,२००</b><span>देय तारीख: ३० जून २०२६</span></div><div><small>पाणी बिल</small><b>₹३६०</b><span>क्यूआर पेमेंट तयार</span></div><div><small>तक्रार</small><b>GP-NER-2026-184</b><span>अधिकारी नियुक्त</span></div><div><small>दाखले</small><b>२ सक्रिय</b><span>जन्म दाखला तपासणीत</span></div></div><div class="flow-result role-summary"><b>सारांश</b><p>• गाव सदस्य: सुनील पाटील · वॉर्ड ३</p><p>• मोबाईल OTP ने पडताळणी पूर्ण.</p><p>• घरपट्टी आणि पाणी बिलासाठी क्यूआर पेमेंट तयार आहे.</p><p>• GP-NER-2026-184 तक्रार अधिकाऱ्याकडे नियुक्त आहे.</p><p>• सेवा अपडेटसाठी WhatsApp सूचना सुरू आहेत.</p></div>`
   },
   admin: {
-    label: "Grampanchayat Admin",
-    name: "GramSevak Admin",
-    title: "Grampanchayat Admin Dashboard",
-    kicker: "STAFF OPERATIONS LOGIN",
-    toast: "Grampanchayat Admin login successful. Operations dashboard is live.",
-    html: `<div class="login-dashboard-grid"><div><small>Pending Services</small><b>२७</b><span>८ urgent today</span></div><div><small>Revenue Collection</small><b>₹८.७६L</b><span>९२% collected</span></div><div><small>Water Alerts</small><b>३</b><span>Ward 3 high usage</span></div><div><small>Audit Reports</small><b>२३/२५</b><span>Ready for review</span></div></div><div class="flow-result"><b>Admin controls enabled</b><p>Approve certificates, assign complaints, verify payments, publish WhatsApp notices, and export audit-ready reports.</p></div>`
+    label: "ग्रामसेवक / ग्रामपंचायत अॅडमिन",
+    name: "ग्रामसेवक अॅडमिन",
+    title: "ग्रामसेवक / ग्रामपंचायत अॅडमिन डॅशबोर्ड",
+    kicker: "कर्मचारी ऑपरेशन्स लॉगिन",
+    toast: "ग्रामसेवक लॉगिन यशस्वी. कार्यप्रवाह डॅशबोर्ड सुरू झाला.",
+    html: `<div class="login-dashboard-grid"><div><small>प्रलंबित सेवा</small><b>२७</b><span>आज ८ तातडीच्या</span></div><div><small>महसूल वसुली</small><b>₹८.७६L</b><span>९२% वसूल</span></div><div><small>पाणी सूचना</small><b>३</b><span>वॉर्ड ३ मध्ये जास्त वापर</span></div><div><small>ऑडिट रिपोर्ट</small><b>२३/२५</b><span>पुनरावलोकनासाठी तयार</span></div></div><div class="flow-result role-summary"><b>सारांश</b><p>• २७ सेवा विनंत्या प्रलंबित आहेत.</p><p>• आज ८ तातडीच्या अर्जांवर कारवाई आवश्यक आहे.</p><p>• महसूल वसुली ₹८.७६L असून ९२% पूर्ण झाली आहे.</p><p>• वॉर्ड ३ मध्ये पाणी वापर जास्त असल्याची सूचना आहे.</p><p>• २३ ऑडिट रिपोर्ट एक्सपोर्टसाठी तयार आहेत.</p></div>`
   },
   sarpanch: {
-    label: "Sarpanch",
-    name: "Sarpanch Office",
-    title: "Sarpanch Governance Dashboard",
-    kicker: "AI DECISION DASHBOARD",
-    toast: "Sarpanch login successful. Governance dashboard is live.",
-    html: `<div class="login-dashboard-grid"><div><small>Village Health</small><b>८७/१००</b><span>Good Progress</span></div><div><small>Complaints Closed</small><b>९६%</b><span>SLA performance</span></div><div><small>Ward Risk</small><b>Ward 3</b><span>Water +२२%</span></div><div><small>Monthly Revenue</small><b>₹१.१९L</b><span>Live collection view</span></div></div><div class="flow-result"><b>Sarpanch AI summary</b><p>Focus today: Ward 3 water inspection, ८७ pending tax households, and ग्रामसभा notice approval.</p></div>`
+    label: "सरपंच",
+    name: "सरपंच कार्यालय",
+    title: "सरपंच प्रशासन डॅशबोर्ड",
+    kicker: "AI निर्णय डॅशबोर्ड",
+    toast: "सरपंच लॉगिन यशस्वी. प्रशासन डॅशबोर्ड सुरू झाला.",
+    html: `<div class="login-dashboard-grid"><div><small>गाव आरोग्य</small><b>८७/१००</b><span>चांगली प्रगती</span></div><div><small>तक्रारी निकाली</small><b>९६%</b><span>वेळेत सेवा कामगिरी</span></div><div><small>वॉर्ड जोखीम</small><b>वॉर्ड ३</b><span>पाणी +२२%</span></div><div><small>मासिक महसूल</small><b>₹१.१९L</b><span>थेट वसुली दृश्य</span></div></div><div class="flow-result role-summary"><b>सारांश</b><p>• गाव आरोग्य स्कोअर ८७/१०० आहे.</p><p>• ९६% तक्रारी ठरलेल्या वेळेत निकाली लागल्या आहेत.</p><p>• वॉर्ड ३ मध्ये पाणी तपासणी सुचवली आहे.</p><p>• ८७ घरांची कर वसुली प्रलंबित आहे.</p><p>• आज ग्रामसभा सूचना मंजुरी बाकी आहे.</p></div>`
   }
-};
+}
 
 let selectedLoginRole = "member";
 
@@ -133,18 +134,20 @@ setAssistant("citizen");
 
 document.addEventListener("click", e => {
   if (!e.target.closest("#playTourAudio")) return;
-  const text = "GramSetu AI product tour. In two minutes, see how a villager logs in with mobile OTP, asks questions in Marathi, files a complaint, pays house tax or water bill with QR code, receives WhatsApp updates, and how the Gram Panchayat sees ward wise analytics, revenue collection, water risk alerts, and audit ready reports.";
-  if ("speechSynthesis" in window) {
+  const text = "नमस्कार. ग्रामसेतू ए आय प्रॉडक्ट टूरमध्ये आपले स्वागत आहे. फक्त दोन मिनिटांत नागरिक मोबाईल ओ टी पी ने लॉग इन करतो, मराठीत प्रश्न विचारतो, तक्रार नोंदवतो, घरपट्टी किंवा पाणी बिलाचा क्यू आर पेमेंट करतो, आणि व्हॉट्सअॅपवर अपडेट मिळवतो. ग्रामपंचायत अॅडमिनला सेवा विनंत्या, महसूल वसुली, पाणी व्यवस्थापन आणि ऑडिट रेडी रिपोर्ट दिसतात. सरपंचला ए आय डॅशबोर्डवर वॉर्डनिहाय जोखीम, महसूल, तक्रारी आणि आजची कृती दिसते. हे प्रत्येक गावासाठी सुरक्षित सबस्क्रिप्शन बेस्ड डिजिटल ग्रामपंचायत प्लॅटफॉर्म आहे.";
+    if ("speechSynthesis" in window) {
     window.speechSynthesis.cancel();
     const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = "en-IN";
+    utterance.lang = "mr-IN";
     utterance.rate = 0.82;
     window.speechSynthesis.speak(utterance);
-    showToast("GramSetu AI product tour audio started.");
+    showToast("मराठी प्रॉडक्ट टूर ऑडिओ सुरू झाला.");
   } else {
-    showToast("Audio narration is not supported in this browser.");
+    showToast("या ब्राउझरमध्ये ऑडिओ निवेदन समर्थित नाही.");
   }
 });
 
 
 document.getElementById("openMemberDashboard")?.addEventListener("click", () => openModal("memberDashboardModal"));
+
+
